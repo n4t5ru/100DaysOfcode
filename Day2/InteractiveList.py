@@ -1,38 +1,39 @@
 #!/usr/bin/python
 
 daList = ["One","Two","Three"]
+looper=True
 
-print('''
-Welcome to List: /n 
-1. View the List /n 
-2. Add to List /n 
-3. Delete from List /n 
-''')
+while looper==True:
+	print('''Welcome to List: \n 1. View the List \n 2. Add to List \n 3. Delete from List \n 4. Exit\n''')
 
-int number=(input("Enter Number:"))
+	numbr=(input("Enter Number: "))
 
-listStuff(number)
+	if numbr=='1':
+		print(daList)
 
-def listStuff(num):
-	match number:
-		case 1:
-			print(daList)
-		case 2:
-			value=input("Enter Item")
-			
-			for x in daList:
-				if x == value:
-					print("Item is already in the list")
-				else:
-					append.daList(value)
-					print("Added Successfully!")
-		case 3:
-			delValue=(input("Value to delete."))
-			for x in daList:
-				if x == delValue:
-					daList.delete(delValue)
-					print("Deleted.")
-				else:
-					print("Value not found")
-		case default:
-			print("Enter a correct number")
+	elif numbr=='2':
+		value=input("Enter Item: ")
+		
+		if value in daList:
+			print("\nItem is already in the list\n")
+
+		else:
+			daList.append(value)
+			print("\nAdded Successfully!\n")
+
+	elif numbr=='3':
+		delValue=(input("Value to delete: "))
+
+		if delValue in daList:
+			daList.remove(delValue)
+			print("\nDeleted.\n")
+
+		else:
+			print("\nValue not found\n")
+	
+	elif numbr=='4':
+		looper=False
+
+	else:
+		print("Enter a correct number")
+
