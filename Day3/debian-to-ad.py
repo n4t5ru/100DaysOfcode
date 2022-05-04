@@ -1,5 +1,7 @@
+#!/usr/bin/bash
+
 import os
-from socket import socket
+import socket
 from subprocess import STDOUT, check_call
 
 #installing the required packages
@@ -20,4 +22,4 @@ check_call(['realm', 'join', '-v', '-U', domainAdmin, domainName])
 check_call(['systemctl', 'restart', 'sssd'])
 
 #check to see if everything is updated
-print('Updated Hostname: ' + socket.gethostname())
+print('Updated Hostname: ' + socket.getfqdn())
