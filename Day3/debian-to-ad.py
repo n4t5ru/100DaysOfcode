@@ -1,12 +1,11 @@
-#!/usr/bin/bash
+#!/usr/bin/python
 
-import os
+#required imports for the script to run
 import socket
-from subprocess import STDOUT, check_call
+from subprocess import check_call
 
 #installing the required packages
-check_call(['apt','install','-y','realmd','libnss-sss','libpam-sss','sssd','sssd-tools','adcli','samba-common-bin','oddjob','oddjob-mkhomedir','packagekit','zsh'], 
-    STDOUT=open(os.devnull, 'wb'), stderr=STDOUT)
+check_call(['apt','install','-y','realmd','libnss-sss','libpam-sss','sssd','sssd-tools','adcli','samba-common-bin','oddjob','oddjob-mkhomedir','packagekit','zsh'])
 
 #User inputs
 hostname = input('Enter Hostname: ')
