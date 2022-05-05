@@ -13,7 +13,9 @@ while looper:
     option = input('Enter Value: ')
 
     if option == '1':
-        print('option one reached')
+        url = input(Fore.BLUE+'Enter URL: ')
+
+        print('Your URL: '+url)
         break
 
     elif option == '2':
@@ -21,4 +23,5 @@ while looper:
         break
 
     else:
+        print('Goodbye!')
         looper=False
