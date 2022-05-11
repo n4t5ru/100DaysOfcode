@@ -1,7 +1,8 @@
 #!/usr/bin/python
 
-#Author: n4t5ru
-#Email: hello@nasru.me
+# Author: n4t5ru
+# Email: hello@nasru.me
+# Script: Random Password Generator
 
 import random
 import string

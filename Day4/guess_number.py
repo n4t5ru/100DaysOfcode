@@ -1,7 +1,10 @@
 #!/usr/bin/python
 
+#!/usr/bin/python
+
 # Author: n4t5ru
-# Automated guessing game!
+# Email: hello@nasru.me
+# Script: Guessing game
 
 import random
 

@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
-#Author: n4t5ru
+# Author: n4t5ru
+# Email: hello@nasru.me
+# Script: Calculator
 
 #imports for the calculator
 from colorama import init, Fore

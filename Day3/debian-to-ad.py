@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+# Author: n4t5ru
+# Email: hello@nasru.me
+# Script: Debian to Active Directory
+
 #required imports for the script to run
 import socket
 from subprocess import check_call
