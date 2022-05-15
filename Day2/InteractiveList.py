@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+# Author: n4t5ru
+# Email: hello@nasru.me
+# Script: Interactive List
+
 daList = ["One","Two","Three"]
 looper=True
 

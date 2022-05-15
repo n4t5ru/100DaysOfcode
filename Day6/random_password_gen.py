@@ -15,7 +15,7 @@ passSymbols = list("!@#$%^&*()-_=+")
 
 def simpleRandPass():
 
-    lenth = input('\nEnter Password Length: ')
+    lenth = int(input('\nEnter Password Length: '))
 
     #empty list to store the password
     password = []
@@ -24,7 +24,7 @@ def simpleRandPass():
     random.shuffle(passCharacts)
 
     #add to the empty list
-    for lenth in range(lenth):
+    for i in range(lenth):
         password.append(random.choice(passCharacts))
 
     #one more shufflue for more secure password
@@ -32,7 +32,7 @@ def simpleRandPass():
 
     newPass = "".join(password)
 
-    return newPass
+    print(newPass)
 
 def complexRandPass():
 
@@ -71,3 +71,4 @@ def complexRandPass():
 
     return newPass
 
+simpleRandPass()

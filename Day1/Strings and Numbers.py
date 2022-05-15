@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+# Author: n4t5ru
+# Email: hello@nasru.me
+# Script: Strings and Numbers
+
 #Below are basic python variables
 #Strings
 str1 = 'Hello World!'
