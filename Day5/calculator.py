@@ -5,7 +5,7 @@
 # Script: Calculator
 
 #imports for the calculator
-from colorama import init, Fore
+from colorama import Fore
 
 #Function for addition
 def Addition():

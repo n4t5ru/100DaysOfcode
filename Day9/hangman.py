@@ -4,7 +4,10 @@
 # Email: hello@nasru.me
 # Script: Hangman Game
 
+from ast import For
 import random
+import string
+from colorama import Fore
 
 Hangman_pics = ['''
    +---+
@@ -57,7 +60,7 @@ def displayBoard(missedLetters, correctLetters, secretWord):
     print(Hangman_pics[len(missedLetters)])
     print()
 
-    print('Missed Letters: ', end=' ')
+    print('\nMissed Letters: ', end=' ')
     for letter in missedLetters:
         print(letter, end=' ')
     print()
@@ -73,3 +76,71 @@ def displayBoard(missedLetters, correctLetters, secretWord):
     for letter in blanks:
         print(letter, end=' ')
     print()
+
+def getGuess(alreadyGuessed):
+    # Returns the letter the player entered. This function makes sure that the player entered a single letter only
+
+    while True:
+        guess = input('\nGuess a letter: ').lower()
+
+        if len(guess) != 1:
+            print('\nPlease Enter one Letter at a time.\n')
+
+        elif guess in alreadyGuessed:
+            print('\nYou have already Guessed the letter.\n')
+        
+        elif guess not in string.ascii_lowercase:
+            print('\nEnter a LETTER!!\n')
+        
+        else:
+            return guess
+
+# This function will return True if player wants to play or else False
+def playAgain():
+    again = input('\nPlay Again? (Yes or No): ').lower()
+
+    return again.startswith('y')
+
+print(Fore.RED+'\nWelcome to HANGMAN!!'+Fore.RESET)
+
+# Global Variables
+missedLetters = ''
+correctLetters = ''
+secretWord = getRandomWord(words)
+gameDone = False
+
+while True:
+    displayBoard(missedLetters, correctLetters, secretWord)
+
+    guess = getGuess(missedLetters + correctLetters)
+
+    if guess in secretWord:
+        correctLetters = correctLetters + guess
+
+        foundAllLetters = True
+        for i in range(len(secretWord)):
+            if secretWord[i] not in correctLetters:
+                foundAllLetters = False
+                break
+        if foundAllLetters:
+            print(Fore.GREEN+f'\nYou guessed {secretWord} Correctly!!'+Fore.RESET)
+            gameDone = True
+
+    else:
+        missedLetters = missedLetters + guess
+
+        if len(missedLetters) == len(Hangman_pics)-1:
+            displayBoard(missedLetters, correctLetters, secretWord)
+            print(Fore.LIGHTBLUE_EX+f'\nYou Ran out of guesses.\nAfter {len(missedLetters)} missed Guesses and {len(correctLetters)} correct guesses.\nThe Correct word is {secretWord}'+Fore.RESET)
+            gameDone = True
+
+    if gameDone:
+        if playAgain():
+            missedLetters = ''
+            correctLetters = ''
+            gameDone = False
+            secretWord = getRandomWord(words)
+
+        else:
+            print(Fore.CYAN+'\nGOODBYE!!\n'+Fore.RESET)
+            break
